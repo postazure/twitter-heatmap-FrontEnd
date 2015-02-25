@@ -1,0 +1,9 @@
+<h1>Tweets</h1>
+{{log model}}
+<ul>
+  {{#each tweet in model}}
+    <li>{{tweet.hashtag}} - {{tweet.text}}</li>
+  {{/each}}
+</ul>
+
+{{outlet}}
