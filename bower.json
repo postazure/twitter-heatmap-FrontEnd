@@ -14,6 +14,7 @@
     "ember-qunit-notifications": "0.0.7",
     "qunit": "~1.17.1",
     "semantic-ui": "~1.10.2",
-    "mapbox.js": "~2.1.5"
+    "mapbox.js": "~2.1.5",
+    "ember-leaflet": "~0.6.0"
   }
 }
