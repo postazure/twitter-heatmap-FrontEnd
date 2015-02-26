@@ -1,10 +1,9 @@
 <h1>Tweets</h1>
-<button {{action "testClick" }} >CLICK</button>
 
 <ul>
   {{#each tweet in model}}
     <li>
-      {{tweet.text}} - 
+      {{tweet.text}} -
 
       {{#each hashtag in tweet.hashtags}}
         {{hashtag.text}}
