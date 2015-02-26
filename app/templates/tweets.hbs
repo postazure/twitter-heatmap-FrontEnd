@@ -1,4 +1,17 @@
 <h1>Tweets</h1>
 
-{{!-- <div id='map'></div> --}}
-{{outlet}}
+<div class="ui grid">
+  <div class="twelve wide column">
+    {{outlet}}
+  </div>
+
+  <div class="four wide column" >
+    <div class="ui secondary vertical menu" id="username-list">
+    [Filter Menu]
+    {{#each tweet in model}}
+      {{#link-to "tweets.show" tweet.id classNames="item"}}
+        {{tweet.text}}
+      {{/link-to}}
+    {{/each}}
+  </div>
+</div>

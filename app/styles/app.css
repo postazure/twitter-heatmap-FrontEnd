@@ -1,4 +1,9 @@
 .leaflet-container {
-  width: 600px;
-  height: 400px;
+  width: 100%;
+  height: 80vh;
+}
+
+#username-list {
+  overflow: scroll;
+  height: 80vh;
 }
