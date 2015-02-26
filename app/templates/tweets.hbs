@@ -1,9 +1,11 @@
 <h1>Tweets</h1>
-{{log model}}
+<button {{action "testClick" }} >CLICK</button>
+
 <ul>
   {{#each tweet in model}}
     <li>{{tweet.hashtag}} - {{tweet.text}}</li>
   {{/each}}
 </ul>
 
+<div id='map'></div>
 {{outlet}}
