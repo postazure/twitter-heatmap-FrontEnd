@@ -6,12 +6,8 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.resource('tweets', function() {
-    this.route('show', {path: "/:tweet_id"});
-  });
-  this.resource('hashtags', function() {
-    this.route('show', {path: "/:tweet_id"});
-  });
+  this.resource('tweets', function() {});
+  this.resource('hashtags', function() {});
 });
 
 export default Router;
