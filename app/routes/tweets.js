@@ -37,10 +37,33 @@ export default Ember.Route.extend({
 
     setTimeout(() =>{
       L.mapbox.accessToken = 'pk.eyJ1IjoicG9zdGF6dXJlIiwiYSI6IkJYZVBuSjgifQ.YPwaTygKiks84wDu8DuejA';
-      var map = L.mapbox.map('map', 'postazure.lalplidi').setView([37.7713,-122.439], 13); // can use .setView here to specify coordinates
-
+      var map = L.mapbox.map('map')
+        .setView([37.7713,-122.439], 13) // can use .setView here to specify coordinates
+        .addLayer(L.mapbox.tileLayer('postazure.lalplidi'));
+      
       var myLayer = L.mapbox.featureLayer().addTo(map);
       myLayer.setGeoJSON(geojson);
+
+
+      // var markers = new L.MarkerClusterGroup();
+      // markers.addLayer(new L.Marker(getRandomLatLng(map)));
+      // // ... Add more layers ...
+      // map.addLayer(markers);
+
+
+      // var myLayer = L.mapbox.featureLayer(geojson);
+      // var markers = new L.MarkerClusterGroup();
+      // var clusterGroup = new L.MarkerClusterGroup();
+      // myLayer.eachLayer(function(layer) {
+      // console.log(layer)
+
+      //     //clusterGroup.addLayer(layer);
+      // });
+
+      // // map.addLayer(clusterGroup);
+      // clusterGroup.addTo(map)
+    
+      // myLayer.addTo(map)
     })
   }
 });
