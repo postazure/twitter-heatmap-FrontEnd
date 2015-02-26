@@ -9,6 +9,9 @@ Router.map(function() {
   this.resource('tweets', function() {
     this.route('show', {path: "/:tweet_id"});
   });
+  this.resource('hashtags', function() {
+    this.route('show', {path: "/:tweet_id"});
+  });
 });
 
 export default Router;

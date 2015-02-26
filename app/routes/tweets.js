@@ -6,15 +6,7 @@ export default Ember.Route.extend({
   },
   activate: function () {
     var tweets = this.modelFor(this.routeName)
-
-    // tweets.forEach(function (tweet) {
-    //   console.log(tweet.get("lat"));
-    //   console.log(tweet.get("lng"));
-    //   console.log(tweet.get("text"));
-    //   tweet.get("hashtags").forEach(function (hashtag) {
-    //     console.log(hashtag.get("text"));
-    //   })
-    // })
+    
     var pinInfo = []
     var geojson = {
       "type": "FeatureCollection",
@@ -33,7 +25,8 @@ export default Ember.Route.extend({
             "coordinates": coords
           },
           "properties": {
-            "title": tweet.get("text")
+            "title": tweet.get("username") + "<hr>",
+            "description": tweet.get("text"),
           }
         }
       );

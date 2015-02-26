@@ -1,0 +1,17 @@
+<h1>Hashtags</h1>
+
+<div class="ui grid">
+  <div class="twelve wide column">
+    {{outlet}}
+  </div>
+
+  <div class="four wide column" >
+    <div class="ui secondary vertical menu" id="username-list">
+    [Filter Menu]
+    {{#each hashtag in model}}
+      {{#link-to "hashtags.show" hashtag.id classNames="item"}}
+        #{{hashtag.text}}
+      {{/link-to}}
+    {{/each}}
+  </div>
+</div>
