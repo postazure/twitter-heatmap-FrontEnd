@@ -27,14 +27,8 @@ export default Ember.Route.extend({
           "properties": {
             "title": tweet.get("username") + "<hr>",
             "description": tweet.get("text"),
-            //"marker-symbol": 'cafe',
             'marker-size': 'small',
-            'marker-color': '#4099ff'
-            // "icon": {
-            //   "iconUrl": "https://www.mapbox.com/maki/renders/airport-24@2x.png",
-            //   "iconSize": [24, 24],
-
-            //}
+            'marker-color': '#0088cc'
           }
         }
       );

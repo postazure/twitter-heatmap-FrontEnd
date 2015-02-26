@@ -4,8 +4,9 @@
   </div>
 
   <div class="four wide column" >
+    <h3>Tweets <a href="/hashtags">Hashtag Map</a></h3>
+    
     <div class="ui secondary vertical menu" id="username-list">
-    [Filter Menu]
     {{#each tweet in model}}
       {{#link-to "tweets.show" tweet.id classNames="item"}}
         {{tweet.text}}

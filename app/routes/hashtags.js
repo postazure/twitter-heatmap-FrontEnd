@@ -42,13 +42,9 @@ export default Ember.Route.extend({
             "properties": {
               "title": title + "<hr>",
               "description": tweet.get("text") + "<hr> by " + tweet.get("username"),
-              "icon": {
-                "iconUrl": "assets/images/Twitter_logo_blue_small.png",
-                "iconSize": [20, 20],
-                "iconAnchor": [10, 10],
-                "popupAnchor": [0, -10],
-                "className": "dot"
-              }
+              'marker-size': 'small',
+              'marker-color': '#0088cc'
+              
             }
           }
         );
