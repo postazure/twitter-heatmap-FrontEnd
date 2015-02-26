@@ -1,16 +1,4 @@
 <h1>Tweets</h1>
 
-<ul>
-  {{#each tweet in model}}
-    <li>
-      {{tweet.text}} -
-
-      {{#each hashtag in tweet.hashtags}}
-        {{hashtag.text}}
-      {{/each}}
-    </li>
-  {{/each}}
-</ul>
-
 <div id='map'></div>
 {{outlet}}
