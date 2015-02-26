@@ -3,7 +3,13 @@
 
 <ul>
   {{#each tweet in model}}
-    <li>{{tweet.hashtag}} - {{tweet.text}}</li>
+    <li>
+      {{tweet.text}} - 
+
+      {{#each hashtag in tweet.hashtags}}
+        {{hashtag.text}}
+      {{/each}}
+    </li>
   {{/each}}
 </ul>
 
