@@ -53,7 +53,7 @@ export default Ember.Route.extend({
 
     setTimeout(() =>{
       L.mapbox.accessToken = 'pk.eyJ1IjoicG9zdGF6dXJlIiwiYSI6IkJYZVBuSjgifQ.YPwaTygKiks84wDu8DuejA';
-      var map = L.mapbox.map('map', 'laurenjrichie.ladp904d').setView([37.7713,-122.439], 13); // can use .setView here to specify coordinates
+      var map = L.mapbox.map('map', 'postazure.lalplidi').setView([37.7713,-122.439], 13); // can use .setView here to specify coordinates
 
       var myLayer = L.mapbox.featureLayer().addTo(map);
       myLayer.setGeoJSON(geojson);
