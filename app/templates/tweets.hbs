@@ -8,9 +8,11 @@
     
     <div class="ui secondary vertical menu" id="username-list">
     {{#each tweet in model}}
-      {{#link-to "tweets.show" tweet.id classNames="item"}}
+      {{!-- {{#link-to "tweets.show" tweet.id classNames="item"}}
         {{tweet.text}}
-      {{/link-to}}
+      {{/link-to}} --}}
+
+        <a {{action "panToPin" tweet}} class="item"> {{tweet.text}} </a>
     {{/each}}
   </div>
 </div>

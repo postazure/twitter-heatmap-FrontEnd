@@ -1,9 +1,43 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+  map: null,
   model: function  () {
     return this.store.find("tweet");
   },
+  actions: {
+    panToPin: function  (tweet) {
+      var map = this.map;
+      var lat = tweet.get("lat");
+      var lng = tweet.get("lng");
+
+      var markerjson = {
+        "type": "FeatureCollection",
+        "features": [
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [lng, lat]
+            },
+            "properties": {
+              "title": tweet.get("username") + "<hr>",
+              "description": tweet.get("text"),
+              'marker-size': 'small',
+              'marker-color': '#0088cc'
+            }
+          }
+        ]
+      }
+      var newPinLayer = L.mapbox.featureLayer(markerjson)
+      
+      newPinLayer.addTo(map)
+      newPinLayer.openPopup();
+
+      map.setView([lat, lng], 14);
+    }
+  },
+
   activate: function () {
     var tweets = this.modelFor(this.routeName);
 
@@ -43,6 +77,8 @@ export default Ember.Route.extend({
       var map = L.mapbox.map('map')
         .setView([37.7713,-122.439], 13) // can use .setView here to specify coordinates
         .addLayer(L.mapbox.tileLayer('postazure.lalplidi'));
+
+      this.set("map", map)
 
       var myLayer = L.mapbox.featureLayer().addTo(map);
       myLayer.setGeoJSON(geojson);
