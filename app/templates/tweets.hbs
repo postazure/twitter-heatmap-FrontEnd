@@ -4,14 +4,13 @@
   </div>
 
   <div class="four wide column" >
-    {{!-- <h3>Tweets - {{link-to "Hashtag Map" "hashtags"}}</h3> --}}
     {{partial "map-selector"}}
-    
     <div class="ui secondary vertical menu" id="username-list">
     {{#each tweet in model}}
       <a {{action "panToPin" tweet}} class="item">{{tweet.text}} </a>
     {{/each}}
+    </div>
+    
   </div>
-</div>
 
-{{log model}}
+</div>

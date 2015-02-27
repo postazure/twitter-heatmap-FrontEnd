@@ -7,5 +7,5 @@ export default DS.Model.extend({
   username:   DS.attr("string"),
   createdAt:  DS.attr("date"),
   updatedAt:  DS.attr("date"),
-  hashtags:   DS.hasMany("hashtag"),
+  hashtags:   DS.hasMany("hashtag", { async: true }),
 });

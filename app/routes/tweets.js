@@ -94,7 +94,7 @@ export default Ember.Route.extend({
       // var markers = new L.MarkerClusterGroup();
       // var clusterGroup = new L.MarkerClusterGroup();
       // myLayer.eachLayer(function(layer) {
-      // console.log(layer)
+      
 
       //     //clusterGroup.addLayer(layer);
       // });

@@ -5,5 +5,5 @@ export default DS.Model.extend({
   count:    DS.attr("number"),
   createdAt:  DS.attr("date"),
   updatedAt:  DS.attr("date"),
-  tweets:   DS.hasMany("tweet"),
+  tweets:   DS.hasMany("tweet", { async: true }),
 });
