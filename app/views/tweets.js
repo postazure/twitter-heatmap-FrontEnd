@@ -46,15 +46,8 @@ export default Ember.View.extend({
           "properties": {
             "title": username + "<hr>",
             "description": text + "<hr>" + tweet.get("createdAt"),
-            // 'marker-size': 'small',
-            // 'marker-color': '#0088cc',
-            // 'marker-symbol': 'twitter'
-            "icon": {
-              "iconUrl": 'https://cdn3.iconfinder.com/data/icons/free-social-icons/67/twitter_circle_color-512.png',
-              "iconSize": [20,20],
-              "iconAnchor": [10, 10],
-              "popupAnchor": [0, -25]
-            }
+            'marker-size': 'small',
+            'marker-color': '#0088cc',
           }
 
         }
