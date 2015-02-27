@@ -3,13 +3,15 @@
     {{outlet}}
   </div>
 
-
   <div class="four wide column" >
     {{partial "map-selector"}}
     
   {{#unless sortedHashtagsDesc.length}}
-    NO CONTENT!
+    <div class="ui active inverted dimmer">
+      <div class="ui text loader">Loading</div>
+    </div>
   {{/unless}}
+  
     <div class="ui secondary vertical menu" id="username-list">
 
 

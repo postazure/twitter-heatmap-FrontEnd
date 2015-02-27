@@ -5,8 +5,16 @@
 
   <div class="four wide column" >
     {{partial "map-selector"}}
+
+  {{#unless sortedTweetsDesc.length}}
+    <div class="ui active inverted dimmer">
+      <div class="ui text loader">Loading</div>
+    </div>
+  {{/unless}}
+
+
     <div class="ui secondary vertical menu" id="username-list">
-    {{#each tweet in model}}
+    {{#each tweet in sortedTweetsDesc}}
       <a {{action "panToPin" tweet}} class="item">{{tweet.text}} </a>
     {{/each}}
     </div>
