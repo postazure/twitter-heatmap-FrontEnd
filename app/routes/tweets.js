@@ -10,7 +10,7 @@ export default Ember.Route.extend({
       var map = this.map;
       var lat = tweet.get("lat");
       var lng = tweet.get("lng");
-
+      
       var markerjson = {
         "type": "FeatureCollection",
         "features": [
@@ -22,7 +22,7 @@ export default Ember.Route.extend({
             },
             "properties": {
               "title": tweet.get("username") + "<hr>",
-              "description": tweet.get("text"),
+              "description": tweet.get("text") + "<hr>" + tweet.get("createdAt"),
               'marker-size': 'small',
               'marker-color': '#0088cc'
             }
@@ -60,7 +60,7 @@ export default Ember.Route.extend({
           },
           "properties": {
             "title": tweet.get("username") + "<hr>",
-            "description": tweet.get("text"),
+            "description": tweet.get("text") + "<hr>" + tweet.get("createdAt"),
             'marker-size': 'small',
             'marker-color': '#0088cc'
           }

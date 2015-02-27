@@ -9,7 +9,7 @@
     
     <div class="ui secondary vertical menu" id="username-list">
     {{#each tweet in model}}
-      <a {{action "panToPin" tweet}} class="item"> {{tweet.createdAt}} - {{tweet.text}} </a>
+      <a {{action "panToPin" tweet}} class="item">{{tweet.text}} </a>
     {{/each}}
   </div>
 </div>
