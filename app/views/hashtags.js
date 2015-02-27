@@ -33,6 +33,13 @@ export default Ember.View.extend({
         var coords = [lng, lat];
         var title = "#" + hashtag.get("text");
 
+        var text = tweet.get("text")
+      
+        if (text) {
+        var linkURL = text.match(/http\S{2,}/g)
+        var text = text.replace(linkURL,"<a target='_blank' href='"+ linkURL +"'>"+ linkURL +"</a>")
+        };
+
         pinInfo.push(
           {
             "type": "Feature",
@@ -42,7 +49,7 @@ export default Ember.View.extend({
             },
             "properties": {
               "title": title + "<hr>",
-              "description": tweet.get("text") + "<hr> by " + tweet.get("username"),
+              "description": text + "<hr> by " + tweet.get("username"),
               'marker-size': 'small',
               'marker-color': '#0088cc'
               
@@ -57,6 +64,10 @@ export default Ember.View.extend({
 
     
     myLayer.setGeoJSON(geojson);
+    
+    // console.log(this.controller.get("activeHashtags"))
+    // var group = new L.featureGroup(this.controller.activeHashtags);
+    // map.fitBounds(group.getBounds());
   }.observes('controller.activeHashtags.length', 'myLayer')
 
 })
