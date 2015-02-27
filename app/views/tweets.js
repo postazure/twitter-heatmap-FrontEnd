@@ -27,6 +27,7 @@ export default Ember.View.extend({
 
 
       var coords = [tweet.get("lng"), tweet.get("lat")];
+      var username = "<a target='_blank' href='https://twitter.com/" + tweet.get("username") +"'>"+ tweet.get("username")+ "</a>"
       var text = tweet.get("text")
       
       if (text) {
@@ -42,7 +43,7 @@ export default Ember.View.extend({
             "coordinates": coords
           },
           "properties": {
-            "title": tweet.get("username") + "<hr>",
+            "title": username + "<hr>",
             "description": text + "<hr>" + tweet.get("createdAt"),
             'marker-size': 'small',
             'marker-color': '#0088cc'
@@ -64,6 +65,7 @@ export default Ember.View.extend({
       var map = this.map;
       var lat = tweet.get("lat");
       var lng = tweet.get("lng");
+      var username = "<a target='_blank' href='https://twitter.com/" + tweet.get("username") +"'>"+ tweet.get("username")+ "</a>"
       var text = tweet.get("text")
       
       if (text) {
@@ -81,7 +83,7 @@ export default Ember.View.extend({
               "coordinates": [lng, lat]
             },
             "properties": {
-              "title": tweet.get("username") + "<hr>",
+              "title": username + "<hr>",
               "description": text + "<hr>" + tweet.get("createdAt"),
               'marker-size': 'small',
               'marker-color': '#0088cc'
