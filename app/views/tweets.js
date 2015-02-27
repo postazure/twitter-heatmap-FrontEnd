@@ -25,6 +25,7 @@ export default Ember.View.extend({
 
     tweets.forEach(function (tweet) {
 
+
       var coords = [tweet.get("lng"), tweet.get("lat")];
       var text = tweet.get("text")
       
