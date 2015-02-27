@@ -15,7 +15,7 @@
 
     <div class="ui secondary vertical menu" id="username-list">
     {{#each tweet in sortedTweetsDesc}}
-      <a {{action "panToPin" tweet}} class="item">{{tweet.text}} </a>
+      <a {{action "panToPin" tweet target="view"}} class="item">{{tweet.text}} </a>
     {{/each}}
     </div>
     
