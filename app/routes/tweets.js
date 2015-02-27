@@ -10,7 +10,7 @@ export default Ember.Route.extend({
       var map = this.map;
       var lat = tweet.get("lat");
       var lng = tweet.get("lng");
-      
+
       var markerjson = {
         "type": "FeatureCollection",
         "features": [
@@ -30,7 +30,7 @@ export default Ember.Route.extend({
         ]
       }
       var newPinLayer = L.mapbox.featureLayer(markerjson)
-      
+
       newPinLayer.addTo(map)
       newPinLayer.openPopup();
 
@@ -94,7 +94,7 @@ export default Ember.Route.extend({
       // var markers = new L.MarkerClusterGroup();
       // var clusterGroup = new L.MarkerClusterGroup();
       // myLayer.eachLayer(function(layer) {
-      
+
 
       //     //clusterGroup.addLayer(layer);
       // });
