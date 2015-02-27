@@ -16,7 +16,7 @@
 
 
       {{#each hashtag in sortedHashtagsDesc}}
-        <div {{action "activateHashtag" hashtag}} class="item">{{hashtag.count}} - #{{hashtag.text}}</div>
+        <a {{action "activateHashtag" hashtag}} class="item">{{hashtag.count}} - #{{hashtag.text}}</a>
       {{/each}}
     </div>
   </div>
