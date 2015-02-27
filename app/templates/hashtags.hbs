@@ -3,12 +3,21 @@
     {{outlet}}
   </div>
 
+
   <div class="four wide column" >
     {{partial "map-selector"}}
+    
+  {{#unless sortedHashtagsDesc.length}}
+    NO CONTENT!
+  {{/unless}}
     <div class="ui secondary vertical menu" id="username-list">
-      {{#each hashtag in controller}}
-        <div class="item">{{hashtag.count}} - #{{hashtag.text}}</div>
+
+
+      {{#each hashtag in sortedHashtagsDesc}}
+        <div {{action "activateHashtag" hashtag}} class="item">{{hashtag.count}} - #{{hashtag.text}}</div>
       {{/each}}
     </div>
   </div>
 </div>
+
+{{maxVarCont}}
