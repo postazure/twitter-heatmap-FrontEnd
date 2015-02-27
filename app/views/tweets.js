@@ -5,8 +5,12 @@ export default Ember.View.extend({
     L.mapbox.accessToken = 'pk.eyJ1IjoicG9zdGF6dXJlIiwiYSI6IkJYZVBuSjgifQ.YPwaTygKiks84wDu8DuejA';
     var map = L.mapbox.map('map', 'postazure.lalplidi').setView([37.7713,-122.439], 13); // can use .setView here to specify coordinates
 
-    var myLayer = L.mapbox.featureLayer().addTo(map);
-    this.set('myLayer', myLayer)
+    var myLayer = new L.MarkerClusterGroup().addTo(map);
+    //var myLayer = L.mapbox.featureLayer().addTo(map);
+    this.set('myLayer', myLayer);
+
+    //var markets = new L.MarkerClusterGroup();
+
   },
   updateMap: function  () {
     var myLayer = this.get('myLayer');
@@ -26,7 +30,7 @@ export default Ember.View.extend({
 
       var coords = [tweet.get("lng"), tweet.get("lat")];
       var text = tweet.get("text")
-      
+
       if (text) {
       var linkURL = text.match(/http:\S{2,}/g)
       var text = text.replace(linkURL,"<a target='_blank' href='"+ linkURL +"'>"+ linkURL +"</a>")
@@ -52,7 +56,7 @@ export default Ember.View.extend({
 
     geojson.features = pinInfo;
 
-    
+
     myLayer.setGeoJSON(geojson);
   }.observes('controller.sortedTweetsDesc.length', 'myLayer')
 });
