@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-export default Ember.ArrayController.extend({
-  sortProperties: ['createdAt'],
-  sortAscending: true
+export default Ember.Controller.extend({
+  tweetsSortingDesc: ['count:desc'],
+  sortedTweetsDesc: Ember.computed.sort('model', 'tweetsSortingDesc'),
 });
