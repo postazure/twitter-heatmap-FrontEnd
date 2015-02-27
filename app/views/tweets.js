@@ -27,13 +27,14 @@ export default Ember.View.extend({
 
 
       var coords = [tweet.get("lng"), tweet.get("lat")];
+
       var username = "<a target='_blank' href='https://twitter.com/" + tweet.get("username") +"'>"+ tweet.get("username")+ "</a>"
       var text = tweet.get("text")
-      
+
       if (text) {
-      var linkURL = text.match(/http\S{2,}/g)
-      var text = text.replace(linkURL,"<a target='_blank' href='"+ linkURL +"'>"+ linkURL +"</a>")
-      };
+      var linkURL = text.match(/http\S{2,}/g);
+      text = text.replace(linkURL,"<a target='_blank' href='"+ linkURL +"'>"+ linkURL +"</a>");
+      }
 
       pinInfo.push(
         {
@@ -45,9 +46,17 @@ export default Ember.View.extend({
           "properties": {
             "title": username + "<hr>",
             "description": text + "<hr>" + tweet.get("createdAt"),
-            'marker-size': 'small',
-            'marker-color': '#0088cc'
+            // 'marker-size': 'small',
+            // 'marker-color': '#0088cc',
+            // 'marker-symbol': 'twitter'
+            "icon": {
+              "iconUrl": 'https://cdn3.iconfinder.com/data/icons/free-social-icons/67/twitter_circle_color-512.png',
+              "iconSize": [20,20],
+              "iconAnchor": [10, 10],
+              "popupAnchor": [0, -25]
+            }
           }
+
         }
       );
 
@@ -55,7 +64,7 @@ export default Ember.View.extend({
 
     geojson.features = pinInfo;
 
-    
+
     myLayer.setGeoJSON(geojson);
   }.observes('controller.sortedTweetsDesc.length', 'myLayer'),
 
@@ -67,12 +76,12 @@ export default Ember.View.extend({
       var lng = tweet.get("lng");
       var username = "<a target='_blank' href='https://twitter.com/" + tweet.get("username") +"'>"+ tweet.get("username")+ "</a>"
       var text = tweet.get("text")
-      
+
       if (text) {
       var linkURL = text.match(/http\S{2,}/g)
       var text = text.replace(linkURL,"<a target='_blank' href='"+ linkURL +"'>"+ linkURL +"</a>")
       };
-      
+
       var markerjson = {
         "type": "FeatureCollection",
         "features": [
@@ -92,7 +101,7 @@ export default Ember.View.extend({
         ]
       }
       var newPinLayer = L.mapbox.featureLayer(markerjson)
-      
+
       newPinLayer.addTo(map)
       newPinLayer.openPopup();
 
