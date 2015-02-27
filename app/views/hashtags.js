@@ -25,6 +25,9 @@ export default Ember.View.extend({
     
     hashtags.forEach(function (hashtag) {
 
+      // console.clear()
+      // console.log("tweets for "+hashtag.get("text"), hashtag.get("tweets") )
+
       var tweets = hashtag.get("tweets");
 
       tweets.forEach(function  (tweet) {
@@ -57,6 +60,10 @@ export default Ember.View.extend({
 
     
     myLayer.setGeoJSON(geojson);
+    
+    // console.log(this.controller.get("activeHashtags"))
+    // var group = new L.featureGroup(this.controller.activeHashtags);
+    // map.fitBounds(group.getBounds());
   }.observes('controller.activeHashtags.length', 'myLayer')
 
 })
