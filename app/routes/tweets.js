@@ -10,6 +10,12 @@ export default Ember.Route.extend({
       var map = this.map;
       var lat = tweet.get("lat");
       var lng = tweet.get("lng");
+      var text = tweet.get("text")
+      
+      if (text) {
+      var linkURL = text.match(/http:\S{2,}/g)
+      var text = text.replace(linkURL,"<a target='_blank' href='"+ linkURL +"'>"+ linkURL +"</a>")
+      };
       
       var markerjson = {
         "type": "FeatureCollection",
@@ -22,7 +28,7 @@ export default Ember.Route.extend({
             },
             "properties": {
               "title": tweet.get("username") + "<hr>",
-              "description": tweet.get("text") + "<hr>" + tweet.get("createdAt"),
+              "description": text + "<hr>" + tweet.get("createdAt"),
               'marker-size': 'small',
               'marker-color': '#0088cc'
             }
@@ -50,6 +56,12 @@ export default Ember.Route.extend({
     tweets.forEach(function (tweet) {
 
       var coords = [tweet.get("lng"), tweet.get("lat")];
+      var text = tweet.get("text")
+      
+      if (text) {
+      var linkURL = text.match(/http:\S{2,}/g)
+      var text = text.replace(linkURL,"<a target='_blank' href='"+ linkURL +"'>"+ linkURL +"</a>")
+      };
 
       pinInfo.push(
         {
@@ -60,7 +72,7 @@ export default Ember.Route.extend({
           },
           "properties": {
             "title": tweet.get("username") + "<hr>",
-            "description": tweet.get("text") + "<hr>" + tweet.get("createdAt"),
+            "description": text + "<hr>" + tweet.get("createdAt"),
             'marker-size': 'small',
             'marker-color': '#0088cc'
           }
