@@ -25,9 +25,6 @@ export default Ember.View.extend({
     
     hashtags.forEach(function (hashtag) {
 
-      // console.clear()
-      // console.log("tweets for "+hashtag.get("text"), hashtag.get("tweets") )
-
       var tweets = hashtag.get("tweets");
 
       tweets.forEach(function  (tweet) {
@@ -35,6 +32,13 @@ export default Ember.View.extend({
         var lng = tweet.get("lng");
         var coords = [lng, lat];
         var title = "#" + hashtag.get("text");
+
+        var text = tweet.get("text")
+      
+        if (text) {
+        var linkURL = text.match(/http\S{2,}/g)
+        var text = text.replace(linkURL,"<a target='_blank' href='"+ linkURL +"'>"+ linkURL +"</a>")
+        };
 
         pinInfo.push(
           {
@@ -45,7 +49,7 @@ export default Ember.View.extend({
             },
             "properties": {
               "title": title + "<hr>",
-              "description": tweet.get("text") + "<hr> by " + tweet.get("username"),
+              "description": text + "<hr> by " + tweet.get("username"),
               'marker-size': 'small',
               'marker-color': '#0088cc'
               
