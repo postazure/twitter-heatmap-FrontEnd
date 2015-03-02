@@ -25,9 +25,18 @@ export default Ember.View.extend({
     
     hashtags.forEach(function (hashtag) {
 
+      // console.log("hashtag",hashtag)
+
       var tweets = hashtag.get("tweets");
+      if (!tweets) {
+        console.log("tweetlist", tweets)
+      };
 
       tweets.forEach(function  (tweet) {
+        
+        // console.log("tweet",tweet)
+
+
         var lat = tweet.get("lat");
         var lng = tweet.get("lng");
         var coords = [lng, lat];
